@@ -14,7 +14,7 @@ export default function Editor() {
   // const page = store.addPage();
   // store.loadJSON(JSON.parse(initialState));
   store.loadJSON(data);
-  store.waitLoading().then(() =>
+  store.waitLoading().then(() => {
     store.activePage.addElement({
       resizable: false,
       type: "text",
@@ -24,8 +24,19 @@ export default function Editor() {
       height: 100,
       x: 50,
       y: 50,
-    })
-  );
+    });
+
+    store.activePage.addElement({
+      name: "svg",
+      resizable: false,
+      type: "svg",
+      src: "https://ucarecdn.com/21e9b028-1982-434d-bbe7-5e57c005c459/mylogo.svg",
+      width: 300,
+      height: 298,
+      x: 150,
+      y: 150,
+    });
+  });
 
   // unsubscribe function
   // const off = store.on("change", (e: any) => {
@@ -45,6 +56,11 @@ export default function Editor() {
   const EditControls = observer(() => {
     const elText = store.activePage.children.find((x) => x.name == "team-name");
     const elLogo = store.activePage.children.find((x) => x.name == "logo");
+    function handleSvgColorChange() {
+      const elSvg = store.activePage.children.find((x) => x.name == "svg");
+      elSvg.replaceColor("#000000", "#FF00FF");
+    }
+
     function handleColorChange() {
       const elements = store.activePage.children.filter(
         (x) => x.custom?.color == "fill-color-1"
@@ -91,6 +107,7 @@ export default function Editor() {
           </div>
         )}
         <button onClick={handleColorChange}>Color</button>
+        <button onClick={handleSvgColorChange}>Svg Color</button>
       </div>
     );
   });
