@@ -9,7 +9,7 @@ export default function Editor() {
     key: process.env.NEXT_PUBLIC_POLOTNO_KEY!,
     showCredit: false,
   });
-  store.setRole("admin");
+  // store.setRole("admin");
 
   // const page = store.addPage();
   // store.loadJSON(JSON.parse(initialState));
@@ -56,6 +56,36 @@ export default function Editor() {
   const EditControls = observer(() => {
     const elText = store.activePage.children.find((x) => x.name == "team-name");
     const elLogo = store.activePage.children.find((x) => x.name == "logo");
+
+    function handleOptionToggle() {
+      /*
+      1. 
+      2. remove element
+      3. 
+      */
+      const el = store.getElementById("DESItR7m5m");
+      if (!el) return;
+
+      //Method1: Move element outside of bounds
+      // const outside = store.width + 100;
+      // if (el.x == outside) {
+      //   el.set({ x: el.custom.old.x });
+      // } else {
+      //   el.set({ x: outside, custom: { old: { x: el.x } } });
+      // }
+
+      //Method2: Use opacity
+      // el.set({
+      //   opacity: el.opacity ? 0 : 1,
+      //   selectable: el.selectable ? false : true, //only works if role is not admin
+      // });
+
+      //Method3: use visibility
+      el.set({
+        visible: el.visible ? false : true,
+      });
+    }
+
     function handleSvgColorChange() {
       const elSvg = store.activePage.children.find((x) => x.name == "svg");
       elSvg.replaceColor("#000000", "#FF00FF");
@@ -108,6 +138,7 @@ export default function Editor() {
         )}
         <button onClick={handleColorChange}>Color</button>
         <button onClick={handleSvgColorChange}>Svg Color</button>
+        <button onClick={handleOptionToggle}>Toggle</button>
       </div>
     );
   });
