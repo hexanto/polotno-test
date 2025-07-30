@@ -1,7 +1,7 @@
 import { observer } from "mobx-react-lite";
 import { Workspace } from "polotno/canvas/workspace";
 import { createStore } from "polotno/model/store";
-import data from "@/app/designs/d3.json";
+import data from "@/app/designs/d4.json";
 import { useEffect, useState } from "react";
 
 export default function Editor() {
@@ -44,6 +44,7 @@ export default function Editor() {
 
   const EditControls = observer(() => {
     const elText = store.activePage.children.find((x) => x.name == "team-name");
+    const elLogo = store.activePage.children.find((x) => x.name == "logo");
     return (
       <div>
         {elText && (
@@ -51,6 +52,13 @@ export default function Editor() {
             type="text"
             value={elText.text}
             onChange={(e) => elText.set({ text: e.target.value })}
+          />
+        )}
+        {elLogo && (
+          <input
+            type="text"
+            value={elLogo.src}
+            onChange={(e) => elLogo.set({ src: e.target.value })}
           />
         )}
       </div>
