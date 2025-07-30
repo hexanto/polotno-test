@@ -4,10 +4,8 @@ import data from "@/app/designs/d3.json";
 
 export default function DirectEditorLoaded() {
   const store = createStore({
-    key: "nFA5H9elEytDyPyvKL7T", // you can create it here: https://polotno.com/cabinet/
-    // you can hide back-link on a paid license
-    // but it will be good if you can keep it for Polotno project support
-    showCredit: true,
+    key: process.env.NEXT_PUBLIC_POLOTNO_KEY!,
+    showCredit: false,
   });
   store.setRole("admin");
 
