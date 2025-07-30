@@ -1,10 +1,10 @@
 import { Suspense } from "react";
-import { DirectEditor } from "./direct-editor";
+import { EditorLoader } from "./editor-loader";
 
 export default function Home() {
   return (
     <Suspense fallback="loading">
-      <DirectEditor />
+      <EditorLoader />
     </Suspense>
   );
 }

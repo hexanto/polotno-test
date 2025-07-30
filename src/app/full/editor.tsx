@@ -2,7 +2,7 @@ import { Workspace } from "polotno/canvas/workspace";
 import { createStore } from "polotno/model/store";
 import data from "@/app/designs/d3.json";
 
-export default function DirectEditorLoaded() {
+export default function Editor() {
   const store = createStore({
     key: process.env.NEXT_PUBLIC_POLOTNO_KEY!,
     showCredit: false,
