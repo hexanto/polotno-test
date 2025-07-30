@@ -253,7 +253,8 @@
           "backgroundColor": "#7ED321",
           "backgroundOpacity": 1,
           "backgroundCornerRadius": 0.5,
-          "backgroundPadding": 0.5
+          "backgroundPadding": 0.5,
+          "custom": { "color": "fill-color-1" }
         },
         {
           "id": "m9SbfrVSYS",
@@ -307,7 +308,7 @@
         {
           "id": "DESItR7m5m",
           "type": "figure",
-          "name": "",
+          "name": "block1",
           "opacity": 1,
           "visible": true,
           "selectable": true,
@@ -342,7 +343,8 @@
           "dash": [],
           "strokeWidth": 0,
           "stroke": "#0c0c0c",
-          "cornerRadius": 0
+          "cornerRadius": 0,
+          "custom": { "color": "fill-color-1" }
         },
         {
           "id": "mTZEUNn997",
@@ -382,7 +384,8 @@
           "dash": [],
           "strokeWidth": 0,
           "stroke": "rgba(255,255,255,1)",
-          "cornerRadius": 25
+          "cornerRadius": 25,
+          "custom": { "color": "fill-color-1" }
         },
         {
           "id": "_j9br1B51p",

@@ -45,6 +45,15 @@ export default function Editor() {
   const EditControls = observer(() => {
     const elText = store.activePage.children.find((x) => x.name == "team-name");
     const elLogo = store.activePage.children.find((x) => x.name == "logo");
+    function handleColorChange() {
+      const elements = store.activePage.children.filter(
+        (x) => x.custom?.color == "fill-color-1"
+      );
+      elements.forEach((x) => {
+        x.set({ fill: "red" });
+      });
+    }
+
     return (
       <div>
         {elText && (
@@ -65,14 +74,23 @@ export default function Editor() {
               type="text"
               value={elLogo.width}
               onChange={(e) => elLogo.set({ width: Number(e.target.value) })}
+              size={5}
             />
             <input
               type="text"
               value={elLogo.height}
               onChange={(e) => elLogo.set({ height: Number(e.target.value) })}
+              size={5}
+            />
+            <input
+              type="text"
+              value={elLogo.y}
+              onChange={(e) => elLogo.set({ y: Number(e.target.value) })}
+              size={5}
             />
           </div>
         )}
+        <button onClick={handleColorChange}>Color</button>
       </div>
     );
   });
