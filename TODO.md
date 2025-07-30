@@ -2,12 +2,13 @@
 
 ## Mimic current designer functionality
 
-- change text
-- change logo: png
+- [x] change text
+- [x] change logo: png
 - change logo: svg
 - change colors
 - change logo: svg + color change
 - change options: aka stirrups
+- Masks
 
 ## Custom elements
 
@@ -17,6 +18,13 @@
 - Text that perfectly scales to fit box
 
 # Customer View
+
+The customer view is optimized for UX and sales and may differ from production ready proofs.
+Things we may do different:
+
+- Use smaller / lower quality images for faster loading times
+- Different layout / preview than proofs
+- More tips/info on UI
 
 ## Flat view
 

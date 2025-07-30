@@ -2,7 +2,7 @@ import { observer } from "mobx-react-lite";
 import { Workspace } from "polotno/canvas/workspace";
 import { createStore } from "polotno/model/store";
 import data from "@/app/designs/d4.json";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 export default function Editor() {
   const store = createStore({
@@ -55,11 +55,23 @@ export default function Editor() {
           />
         )}
         {elLogo && (
-          <input
-            type="text"
-            value={elLogo.src}
-            onChange={(e) => elLogo.set({ src: e.target.value })}
-          />
+          <div>
+            <input
+              type="text"
+              value={elLogo.src}
+              onChange={(e) => elLogo.set({ src: e.target.value })}
+            />
+            <input
+              type="text"
+              value={elLogo.width}
+              onChange={(e) => elLogo.set({ width: Number(e.target.value) })}
+            />
+            <input
+              type="text"
+              value={elLogo.height}
+              onChange={(e) => elLogo.set({ height: Number(e.target.value) })}
+            />
+          </div>
         )}
       </div>
     );
